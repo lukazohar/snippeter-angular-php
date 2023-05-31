@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gostitelj: 127.0.0.1
--- Čas nastanka: 31. maj 2023 ob 23.12
+-- Čas nastanka: 31. maj 2023 ob 23.28
 -- Različica strežnika: 10.4.28-MariaDB
 -- Različica PHP: 8.2.4
 
@@ -33,6 +33,15 @@ CREATE TABLE `sharedsnippets` (
   `userId` int(11) NOT NULL,
   `dateShared` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Odloži podatke za tabelo `sharedsnippets`
+--
+
+INSERT INTO `sharedsnippets` (`id`, `snippetId`, `userId`, `dateShared`) VALUES
+(1, 1, 2, '2023-05-31'),
+(2, 1, 3, '2023-05-30'),
+(3, 5, 2, '2023-05-31');
 
 -- --------------------------------------------------------
 
@@ -117,7 +126,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT tabele `sharedsnippets`
 --
 ALTER TABLE `sharedsnippets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT tabele `snippet`
