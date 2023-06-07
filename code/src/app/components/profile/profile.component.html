@@ -1,23 +1,23 @@
 <div class="card">
     <div class="card-body">
-      <form [formGroup]="registerForm">
-        <h5 class="card-title">Register</h5>
+      <h5 class="card-title">Profile</h5>
+      <form [formGroup]="profileForm">
         <div class="row">
           <div class="col-3">
             <label for="typeahead-basic-email">First Name</label>
-            <input id="typeahead-basic-email" type="text" class="form-control" formControlName="firstName" />
+            <input id="typeahead-basic-email" type="email" class="form-control" formControlName="firstName" />
           </div>
         </div>
         <div class="row">
           <div class="col-3">
             <label for="typeahead-basic-email">Last Name</label>
-            <input id="typeahead-basic-email" type="text" class="form-control" formControlName="lastName" />
+            <input id="typeahead-basic-email" type="email" class="form-control" formControlName="lastName" />
           </div>
         </div>
         <div class="row">
           <div class="col-3">
             <label for="typeahead-basic-email">Username</label>
-            <input id="typeahead-basic-email" type="text" class="form-control" formControlName="username" />
+            <input id="typeahead-basic-email" type="email" class="form-control" formControlName="username" />
           </div>
         </div>
         <div class="row">
@@ -27,14 +27,10 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-3">
-            <label for="typeahead-basic-email">Password</label>
-            <input id="typeahead-basic-email" type="password" class="form-control" formControlName="password" />
-          </div>
-        </div>
-        <div class="row">
           <div class="col-12 mt-3">
-            <button type="button" class="btn btn-primary" (click)="register()">Register</button>
+            <button type="button" class="btn btn-primary" (click)="editProfile()">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="deleteProfile()">Delete</button>
+            <a class="card-text"><small class="text-muted"><p><a class="link-offset-2 link-offset-3-hover" (click)="logout()">Logout</a></p></small></a>
           </div>
         </div>
       </form>
