@@ -1,3 +1,8 @@
+# Uporabniki:
+email: luka.zohi@gmail.com, geslo: luka.zohi@gmail.com
+email: admin@admin.com, geslo: admin@admin.com
+email: luka7307@student.uni-lj.si, geslo: luka7307@student.uni-lj.si
+
 # Snippeter
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
