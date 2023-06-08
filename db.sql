@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gostitelj: 127.0.0.1
--- Čas nastanka: 31. maj 2023 ob 23.28
+-- Čas nastanka: 08. jun 2023 ob 01.08
 -- Različica strežnika: 10.4.28-MariaDB
 -- Različica PHP: 8.2.4
 
@@ -46,10 +46,10 @@ INSERT INTO `sharedsnippets` (`id`, `snippetId`, `userId`, `dateShared`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabele `snippet`
+-- Struktura tabele `snippets`
 --
 
-CREATE TABLE `snippet` (
+CREATE TABLE `snippets` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `prefix` varchar(100) NOT NULL,
@@ -59,10 +59,10 @@ CREATE TABLE `snippet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Odloži podatke za tabelo `snippet`
+-- Odloži podatke za tabelo `snippets`
 --
 
-INSERT INTO `snippet` (`id`, `name`, `prefix`, `description`, `body`, `userId`) VALUES
+INSERT INTO `snippets` (`id`, `name`, `prefix`, `description`, `body`, `userId`) VALUES
 (1, 'Print to console', 'log', 'Log output to console', 'console.log(\'$1\');\\n\r\n$2', 1),
 (2, 'For Loop', 'for', 'For Loop', 'for (var ${index} = 0; ${index} < ${array}.length; ${index}++) {\\n\r\n\\tvar ${element} = ${array}[${index}];\r\n\\t$0\r\n}', 1),
 (3, 'Write pdb', 'pdb', 'Write pdb.set_trace() to debug Python scripts', 'import pdb; pdb.set_trace()\r\n$2', 2),
@@ -89,7 +89,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstName`, `lastName`, `username`, `email`, `password`) VALUES
-(1, 'Luka', 'Žohar', 'akul', 'luka.zohi@gmail.com', 'luka.zohi@gmail.com'),
+(1, 'AAAAA', 'Žohar', 'akul', 'luka.zohi@gmail.com', 'luka.zohi@gmail.com'),
 (2, 'Lara', 'Žohar', 'larazohar', 'luka7307@student.uni-lj.si', 'luka7307@student.uni-lj.si'),
 (3, 'Random', 'User', 'admin', 'admin@admin.com', 'admin@admin.com');
 
@@ -106,9 +106,9 @@ ALTER TABLE `sharedsnippets`
   ADD KEY `userId` (`userId`);
 
 --
--- Indeksi tabele `snippet`
+-- Indeksi tabele `snippets`
 --
-ALTER TABLE `snippet`
+ALTER TABLE `snippets`
   ADD PRIMARY KEY (`id`),
   ADD KEY `snippet_ibfk_1` (`userId`);
 
@@ -129,9 +129,9 @@ ALTER TABLE `sharedsnippets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT tabele `snippet`
+-- AUTO_INCREMENT tabele `snippets`
 --
-ALTER TABLE `snippet`
+ALTER TABLE `snippets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
@@ -148,14 +148,14 @@ ALTER TABLE `users`
 -- Omejitve za tabelo `sharedsnippets`
 --
 ALTER TABLE `sharedsnippets`
-  ADD CONSTRAINT `sharedsnippets_ibfk_1` FOREIGN KEY (`snippetId`) REFERENCES `snippet` (`id`),
+  ADD CONSTRAINT `sharedsnippets_ibfk_1` FOREIGN KEY (`snippetId`) REFERENCES `snippets` (`id`),
   ADD CONSTRAINT `sharedsnippets_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`);
 
 --
--- Omejitve za tabelo `snippet`
+-- Omejitve za tabelo `snippets`
 --
-ALTER TABLE `snippet`
-  ADD CONSTRAINT `snippet_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+ALTER TABLE `snippets`
+  ADD CONSTRAINT `snippets_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

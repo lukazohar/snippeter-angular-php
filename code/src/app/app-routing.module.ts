@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { GeneratorComponent } from './components/generator/generator.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SnippetsComponent } from './components/snippets/snippets.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,14 @@ const routes: Routes = [
   },
   {
     path: 'generator',
+    component: GeneratorComponent
+  },
+  {
+    path: 'snippets',
+    component: SnippetsComponent
+  },
+  {
+    path: 'snippets/:id',
     component: GeneratorComponent
   },
   {

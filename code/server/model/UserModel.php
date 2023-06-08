@@ -14,10 +14,13 @@ class UserModel extends Database
     {
         return $this->edit("UPDATE users SET firstName = '" . $firstName . "', lastName = '" . $lastName . "', userName = '" . $username . "', email = '" . $email . "' WHERE id = " . $id);
     }
-    
     public function login($email, $password)
     {
         return $this->select("SELECT * FROM users WHERE email = '" . $email . "' AND password = '" . $password . "'");
+    }
+    public function addUser($firstName, $lastName, $username, $email, $password)
+    {
+        return $this->edit("INSERT INTO users (firstName, lastName, username, email, password) VALUES ('" . $firstName . "', '" . $lastName . "', '" . $username . "', '" . $email . "', '" . $password . "');");
     }
     public function register($firstName, $lastName, $username, $email, $password)
     {

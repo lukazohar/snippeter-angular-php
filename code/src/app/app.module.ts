@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SnippetsComponent } from './components/snippets/snippets.component';
+import { ReplacePipe } from './replace.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SnippetsComponent } from './components/snippets/snippets.component';
     RegisterComponent,
     GeneratorComponent,
     ProfileComponent,
-    SnippetsComponent
+    SnippetsComponent,
+    ReplacePipe
   ],
   imports: [
     BrowserModule,

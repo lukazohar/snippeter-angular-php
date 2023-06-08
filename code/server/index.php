@@ -19,7 +19,8 @@ if (isset($_SERVER['REQUEST_URI'])) {
     $uri = explode( '/', $uri );
     if (
         !isset($uri[2]) || !isset($uri[3]) ||
-        (isset($uri[2]) && $uri[2] != 'user')
+        (isset($uri[2]) && $uri[2] != 'user') &&
+        (isset($uri[2]) && $uri[2] != 'snippet')
     ) {
         header("HTTP/1.1 404 Not Found");
         exit();

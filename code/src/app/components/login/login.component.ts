@@ -25,7 +25,7 @@ export class LoginComponent {
       if (res[0] != null) {
         console.log("Success");
         localStorage.setItem("userId", res[0].id);
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/snippets']);
       } else {
         alert("Wrong login data!")
       }

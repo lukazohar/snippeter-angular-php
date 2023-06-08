@@ -1,30 +1,64 @@
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">Generator</h5>
-        <div class="row">
-            <div class="col-5">
-                <label for="typeahead-basic-name">Name</label>
-                <input id="typeahead-basic-name" type="text" class="form-control" [formControl]="name" />
-            </div>
-            <div class="col-4">
-                <label for="typeahead-basic-prefix">Prefix</label>
-                <input id="typeahead-basic-prefix" type="text" class="form-control" [formControl]="prefix" />
-            </div>
-            <div class="col-1" (click)="copy()">copy</div>
-            <div class="col-1" (click)="save()">save</div>
-            <div class="col-1" (click)="share()">share</div>
+<div class="card bg-primary bg-gradient">
+  <div class="card-body">
+    <div class="display-4 text-white">Generator</div>
+    <form [formGroup]="generatorForm">
+      <div class="row">
+        <div class="col-5">
+          <label for="typeahead-basic-name" class="text-white">Name</label>
+          <input
+            id="typeahead-basic-name"
+            type="text"
+            class="form-control bg-form"
+            formControlName="name"
+          />
         </div>
-        <div class="row">
-            <div class="col-12">
-                <label for="typeahead-basic-description">Description</label>
-                <input id="typeahead-basic-description" type="text" class="form-control" [formControl]="description" />
-            </div>
+        <div class="col-4">
+          <label for="typeahead-basic-prefix" class="text-white">Prefix</label>
+          <input
+            id="typeahead-basic-prefix"
+            type="text"
+            class="form-control bg-form"
+            formControlName="prefix"
+          />
         </div>
-        <div class="row">
-            <div class="col-12">
-                <label for="body" class="form-label">Body</label>
-                <textarea id="body" class="form-control" rows="15" [formControl]="body"></textarea>
-            </div>
+        <div class="col-1" (click)="copy()">
+          <button type="button" class="btn btn-outline-light">
+            <div class="bi bi-clipboard bi-big"></div>
+          </button>
         </div>
-    </div>
+        <div class="col-1" (click)="save()">
+          <button type="button" class="btn btn-outline-light">
+            <div class="bi bi-save bi-big"></div>
+          </button>
+        </div>
+        <div class="col-1" (click)="share()">
+          <button type="button" class="btn btn-outline-light">
+            <div class="bi bi-share bi-big"></div>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label for="typeahead-basic-description" class="text-white">Description</label>
+          <input
+            id="typeahead-basic-description"
+            type="text"
+            class="form-control bg-form"
+            formControlName="description"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label for="body" class="form-label text-white">Body</label>
+          <textarea
+            id="body"
+            class="form-control bg-form"
+            rows="15"
+            formControlName="body"
+          ></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

@@ -1,35 +1,35 @@
-<div class="card">
+<div class="card bg-primary bg-gradient">
     <div class="card-body">
-      <h5 class="card-title">Profile</h5>
+      <div class="display-4 text-white">Profile</div>
       <form [formGroup]="profileForm">
         <div class="row">
           <div class="col-3">
-            <label for="typeahead-basic-email">First Name</label>
+            <label for="typeahead-basic-email" class="text-white">First Name</label>
             <input id="typeahead-basic-email" type="email" class="form-control" formControlName="firstName" />
           </div>
         </div>
         <div class="row">
           <div class="col-3">
-            <label for="typeahead-basic-email">Last Name</label>
+            <label for="typeahead-basic-email" class="text-white">Last Name</label>
             <input id="typeahead-basic-email" type="email" class="form-control" formControlName="lastName" />
           </div>
         </div>
         <div class="row">
           <div class="col-3">
-            <label for="typeahead-basic-email">Username</label>
+            <label for="typeahead-basic-email" class="text-white">Username</label>
             <input id="typeahead-basic-email" type="email" class="form-control" formControlName="username" />
           </div>
         </div>
         <div class="row">
           <div class="col-3">
-            <label for="typeahead-basic-email">Email</label>
+            <label for="typeahead-basic-email" class="text-white">Email</label>
             <input id="typeahead-basic-email" type="email" class="form-control" formControlName="email" />
           </div>
         </div>
         <div class="row">
           <div class="col-12 mt-3">
-            <button type="button" class="btn btn-primary" (click)="editProfile()">Edit</button>
-            <button type="button" class="btn btn-danger" (click)="deleteProfile()">Delete</button>
+            <button type="button" class="btn btn-info snippet-button" (click)="editProfile()">Edit</button>
+            <button type="button" class="btn btn-danger snippet-button" (click)="deleteProfile()">Delete</button>
             <a class="card-text"><small class="text-muted"><p><a class="link-offset-2 link-offset-3-hover" (click)="logout()">Logout</a></p></small></a>
           </div>
         </div>

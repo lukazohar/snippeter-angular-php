@@ -1,1 +1,26 @@
-<p>snippets works!</p>
+<div class="card bg-primary bg-gradient">
+    <div class="card-body">
+      <div class="display-4 text-white">My Snippets</div>
+      <div *ngIf="snippets" class="mt-4">
+        <div *ngFor="let snippet of snippets">
+          <div class="card mt-2 bg-primary bg-gradient">
+            <div class="card-body bg-info">
+              <h5 class="text-white"><b>{{ snippet.name }}</b></h5>
+              <p class="text-white"><b class="text-white">Prefix:</b> {{ snippet.prefix }}</p>
+              <p class="text-white">Description: {{ snippet.description }}</p>
+              <div class="card">
+                <span class="card-body snippet-body">{{ snippet.body }}</span>
+              </div>
+              <div class="row">
+                <div class="col-12 mt-3">
+                  <button type="button" class="btn btn-outline-primary snippet-button" (click)="editSnippet(snippet.id)">Edit</button>
+                  <button type="button" class="btn btn-outline-danger snippet-button" (click)="deleteSnippet(snippet.id)">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

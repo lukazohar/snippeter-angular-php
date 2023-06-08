@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  apiUrl = "";
+  apiUrl = "http://localhost/index.php";
+
   registerForm = new FormGroup({
     firstName: new FormControl(),
     lastName: new FormControl(),
@@ -17,13 +19,15 @@ export class RegisterComponent {
     password: new FormControl(),
   });
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
 
   }
 
   register() {
-    this.http.post(this.apiUrl, this.registerForm.value).subscribe(res => {
-      console.log(res);
+    this.http.post(`${this.apiUrl}/user/register`, this.registerForm.value).subscribe(res => {
+      if (res) {
+        this.router.navigate(["login"]);
+      }
     },
     err => {
       console.log(err);
