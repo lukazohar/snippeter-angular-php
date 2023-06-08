@@ -32,6 +32,7 @@ export class ProfileComponent implements OnInit {
         this.profileForm.get("email")?.setValue(res[0].email);
         this.profileForm.get("password")?.setValue(res[0].password);
       } else {
+        alert("User not found!")
         console.log("User not found");
       }
     });
@@ -40,6 +41,7 @@ export class ProfileComponent implements OnInit {
   editProfile() {
     this.http.put(`${this.apiUrl}/user/edit`, this.profileForm.value).subscribe((res: any) => {
       if (res != null && res != -1) {
+        alert("Snippet successfully edited!")
         console.log("Successfully edited!");
       } else {
         alert("Error updating user!");

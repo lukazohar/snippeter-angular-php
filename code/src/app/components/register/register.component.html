@@ -1,40 +1,40 @@
-<div class="card">
+<div class="card bg-primary bg-gradient">
     <div class="card-body">
       <form [formGroup]="registerForm">
-        <h5 class="card-title">Register</h5>
+    <div class="display-4 text-white">Register</div>
         <div class="row">
           <div class="col-3">
-            <label for="typeahead-basic-email">First Name</label>
-            <input id="typeahead-basic-email" type="text" class="form-control" formControlName="firstName" />
+            <label for="typeahead-basic-email" class="text-white">First Name</label>
+            <input id="typeahead-basic-email" type="text" class="form-control bg-form" formControlName="firstName" />
           </div>
         </div>
         <div class="row">
           <div class="col-3">
-            <label for="typeahead-basic-email">Last Name</label>
-            <input id="typeahead-basic-email" type="text" class="form-control" formControlName="lastName" />
+            <label for="typeahead-basic-email" class="text-white">Last Name</label>
+            <input id="typeahead-basic-email" type="text" class="form-control bg-form" formControlName="lastName" />
           </div>
         </div>
         <div class="row">
           <div class="col-3">
-            <label for="typeahead-basic-email">Username</label>
-            <input id="typeahead-basic-email" type="text" class="form-control" formControlName="username" />
+            <label for="typeahead-basic-email" class="text-white">Username</label>
+            <input id="typeahead-basic-email" type="text" class="form-control bg-form" formControlName="username" />
           </div>
         </div>
         <div class="row">
           <div class="col-3">
-            <label for="typeahead-basic-email">Email</label>
-            <input id="typeahead-basic-email" type="email" class="form-control" formControlName="email" />
+            <label for="typeahead-basic-email" class="text-white">Email</label>
+            <input id="typeahead-basic-email" type="email" class="form-control bg-form" formControlName="email" />
           </div>
         </div>
         <div class="row">
           <div class="col-3">
-            <label for="typeahead-basic-email">Password</label>
-            <input id="typeahead-basic-email" type="password" class="form-control" formControlName="password" />
+            <label for="typeahead-basic-email" class="text-white">Password</label>
+            <input id="typeahead-basic-email" type="password" class="form-control bg-form" formControlName="password" />
           </div>
         </div>
         <div class="row">
           <div class="col-12 mt-3">
-            <button type="button" class="btn btn-primary" (click)="register()">Register</button>
+            <button type="button" class="btn btn-info" (click)="register()">Register</button>
           </div>
         </div>
       </form>

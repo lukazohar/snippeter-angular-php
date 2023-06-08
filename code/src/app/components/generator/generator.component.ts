@@ -24,17 +24,19 @@ export class GeneratorComponent {
   constructor(private clipboard: Clipboard, private http: HttpClient, private route: ActivatedRoute) {
     const snippetId = this.route.snapshot.paramMap.get("id")
 
-    this.http.get<ISnippet[]>(`${this.apiUrl}/snippet/get?id=${snippetId}`).subscribe(res => {
-      if (res[0] != null) {
-        this.generatorForm.get("id")?.setValue(res[0].id ? res[0].id : null);
-        this.generatorForm.get("name")?.setValue(res[0].name);
-        this.generatorForm.get("prefix")?.setValue(res[0].prefix);
-        this.generatorForm.get("description")?.setValue(res[0].description);
-        this.generatorForm.get("body")?.setValue(res[0].body);
-      } else {
-        console.log("Snippet doesn't exist!");
-      }
-    })
+    if (snippetId) {
+      this.http.get<ISnippet[]>(`${this.apiUrl}/snippet/get?id=${snippetId}`).subscribe(res => {
+        if (res[0] != null) {
+          this.generatorForm.get("id")?.setValue(res[0].id ? res[0].id : null);
+          this.generatorForm.get("name")?.setValue(res[0].name);
+          this.generatorForm.get("prefix")?.setValue(res[0].prefix);
+          this.generatorForm.get("description")?.setValue(res[0].description);
+          this.generatorForm.get("body")?.setValue(res[0].body);
+        } else {
+          alert("Snippet doesn't exist!")
+        }
+      }) 
+    }
   }
 
   copy() {
@@ -61,13 +63,14 @@ export class GeneratorComponent {
 
       if (snippet.id) {
         this.http.put<ISnippet>(`${this.apiUrl}/snippet/edit?id=${snippet.id}`, snippet).subscribe((res) => {
+          alert("Snippet successfully saved!")
           console.log(res);
         }, err => {
           console.log(err);
         });
       } else {
         this.http.post<ISnippet>(`${this.apiUrl}/snippet/add`, snippet).subscribe((res) => {
-          console.log(res);
+          alert("Snippet successfully added!")
         }, err => {
           console.log(err);
         });
@@ -102,5 +105,9 @@ export class GeneratorComponent {
       `\t\t"body": [\n${snippetBodyString}\t\t],\n` +
       `\t}`
     );
+  }
+
+  isSignedIn() {
+    return localStorage.getItem("userId") != null;
   }
 }

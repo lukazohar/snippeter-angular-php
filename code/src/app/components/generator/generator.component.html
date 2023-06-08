@@ -26,12 +26,12 @@
             <div class="bi bi-clipboard bi-big"></div>
           </button>
         </div>
-        <div class="col-1" (click)="save()">
+        <div class="col-1" (click)="save()" *ngIf="isSignedIn()">
           <button type="button" class="btn btn-outline-light">
             <div class="bi bi-save bi-big"></div>
           </button>
         </div>
-        <div class="col-1" (click)="share()">
+        <div class="col-1" (click)="share()" *ngIf="isSignedIn()">
           <button type="button" class="btn btn-outline-light">
             <div class="bi bi-share bi-big"></div>
           </button>
