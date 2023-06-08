@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,8 +15,8 @@ export class ProfileComponent implements OnInit {
     firstName: new FormControl(),
     lastName: new FormControl(),
     username: new FormControl(),
-    email: new FormControl(),
-    password: new FormControl(),
+    email: new FormControl("", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+    password: new FormControl("", [Validators.minLength(5), Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]),
   });
 
   constructor(private http: HttpClient, private router: Router) {
@@ -39,6 +39,15 @@ export class ProfileComponent implements OnInit {
   }
 
   editProfile() {
+    if (!this.profileForm.get("email")?.valid) {
+      alert("Error in Email!")
+      return;
+    }
+    if (!this.profileForm.get("password")?.valid) {
+      alert("Error in Password!\n- minimun lenght: 5\n- must contain letters (both uppercase and lowercase) and numbers");
+      return;
+    }
+
     this.http.put(`${this.apiUrl}/user/edit`, this.profileForm.value).subscribe((res: any) => {
       if (res != null && res != -1) {
         alert("Snippet successfully edited!")
